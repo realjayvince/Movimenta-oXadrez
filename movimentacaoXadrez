@@ -1,0 +1,73 @@
+#include <stdio.h>
+
+
+void moverTorre(int casas) {
+    if (casas == 0) return;
+    printf("Direita\n");
+    moverTorre(casas - 1);
+}
+
+
+void moverRainha(int casas) {
+    if (casas == 0) return;
+    printf("Esquerda\n");
+    moverRainha(casas - 1);
+}
+
+
+void moverBispo(int casas) {
+    if (casas == 0) return;
+
+   
+    for (int vertical = 0; vertical < 1; vertical++) {
+        for (int horizontal = 0; horizontal < 1; horizontal++) {
+            printf("Cima Direita\n");
+        }
+    }
+
+    moverBispo(casas - 1); 
+}
+
+
+void moverCavaloEmL() {
+    printf("\nMovimento do Cavalo:\n");
+
+    int movimentos = 1; 
+    for (int i = 0; i < movimentos; i++) {
+        int vertical = 0, horizontal = 0;
+
+        
+        for (; vertical < 2; vertical++) {
+            if (vertical == 1) continue;  
+            printf("Cima\n");
+        }
+
+       
+        while (horizontal < 1) {
+            printf("Direita\n");
+            horizontal++;
+
+            if (horizontal == 1) break;
+        }
+    }
+}
+
+
+int main() {
+    // Torre
+    printf("Movimento da Torre:\n");
+    moverTorre(5);
+
+    // Bispo
+    printf("\nMovimento do Bispo:\n");
+    moverBispo(5);
+
+    // Rainha
+    printf("\nMovimento da Rainha:\n");
+    moverRainha(8);
+
+    // Cavalo (com loops complexos)
+    moverCavaloEmL();
+
+    return 0;
+}
